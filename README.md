@@ -1,5 +1,7 @@
 # ReactApp
 
+[![CI](https://github.com/HassanMTS/ReactApp/actions/workflows/nodejs.yml/badge.svg)](https://github.com/HassanMTS/ReactApp/actions)
+
 Simple React application.
 
 ## Author
