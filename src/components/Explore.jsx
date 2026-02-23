@@ -1,87 +1,132 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 
-const Explore = () => (
-  <>
-    <header>
+const Explore = () => {
+  const [filterValue, setFilterValue] = useState("all devices");
+  const products = [
+    {
+      id: 1,
+      category: "smartphone",
+      name: "Smartphone",
+      image: "/images/buy.webp",
+      price: "£699",
+      desc: "Fast, modern smartphone ideal for daily use with advanced camera and long battery life.",
+    },
+    {
+      id: 2,
+      category: "laptop",
+      name: "Laptop",
+      image:
+        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=700&q=80",
+      price: "£1099",
+      desc: "A powerful and reliable laptop for work and school with fast processor and ample storage.",
+    },
+    {
+      id: 3,
+      category: "headphones",
+      name: "Headphones",
+      image:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80",
+      price: "£199",
+      desc: "Premium wireless headphones with noise cancellation and excellent sound quality.",
+    },
+    {
+      id: 4,
+      category: "tablet",
+      name: "Tablet",
+      image:
+        "https://images.unsplash.com/photo-1526045612519-1fc6e4662adf?auto=format&fit=crop&w=700&q=80",
+      price: "£449",
+      desc: "Lightweight tablet perfect for entertainment and productivity on the go.",
+    },
+    {
+      id: 5,
+      category: "smartwatch",
+      name: "Smartwatch",
+      image:
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80",
+      price: "£299",
+      desc: "Feature-rich smartwatch with fitness tracking and notification alerts.",
+    },
+    {
+      id: 6,
+      category: "console",
+      name: "Gaming Console",
+      image:
+        "https://images.unsplash.com/photo-1578303512453-a87efb8fdc5f?auto=format&fit=crop&w=700&q=80",
+      price: "£399",
+      desc: "Latest gaming console for immersive gaming experience.",
+    },
+  ];
+  const filteredProducts = products.filter((product) => {
+    if (filterValue === "all devices") return true;
+    return filterValue.toLowerCase().includes(product.category);
+  });
+  return (
+    <>
+      <Header />
+      <div className="search-container">
+        <input type="text" placeholder="Search for devices..." />
+      </div>
+      <div className="filter-bar">
+        <button
+          className={`filter-btn ${filterValue === "all devices" ? "active" : ""}`}
+          onClick={() => setFilterValue("all devices")}
+        >
+          All Devices
+        </button>
+        <button
+          className={`filter-btn ${filterValue === "smartphones" ? "active" : ""}`}
+          onClick={() => setFilterValue("smartphones")}
+        >
+          Smartphones
+        </button>
+        <button
+          className={`filter-btn ${filterValue === "laptops" ? "active" : ""}`}
+          onClick={() => setFilterValue("laptops")}
+        >
+          Laptops
+        </button>
+        <button
+          className={`filter-btn ${filterValue === "headphones" ? "active" : ""}`}
+          onClick={() => setFilterValue("headphones")}
+        >
+          Headphones
+        </button>
+        <button
+          className={`filter-btn ${filterValue === "tablets" ? "active" : ""}`}
+          onClick={() => setFilterValue("tablets")}
+        >
+          Tablets
+        </button>
+      </div>
       <div className="container">
-        <Link to="/" className="logo-link">
-          <img src="images/logo.png" alt="DeviceSwap Logo" className="header-logo" />
-          <h1 style={{ color: '#6c63ff', fontWeight: 700, fontSize: '2rem', margin: 0 }}>DeviceSwap</h1>
-        </Link>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/explore">Explore</Link>
-          <Link to="/checkout">Checkout</Link>
-          <Link to="/sell">Sell</Link>
-          <Link to="/settings">Setting</Link>
-          <Link to="/profile">Profile</Link>
-          <Link to="/messages">Messages</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/registration">Register</Link>
-        </nav>
-      </div>
-    </header>
-    <div className="search-container">
-      <input type="text" placeholder="Search for devices..." />
-    </div>
-    <div className="filter-bar">
-      <button className="filter-btn active">All Devices</button>
-      <button className="filter-btn">Smartphones</button>
-      <button className="filter-btn">Laptops</button>
-      <button className="filter-btn">Headphones</button>
-      <button className="filter-btn">Tablets</button>
-    </div>
-    <div className="container">
-      <div className="product-grid">
-        <div className="product-card" data-category="smartphone">
-          <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=700&q=80" alt="Smartphone" />
-          <h3>Smartphone</h3>
-          <p>Fast, modern smartphone ideal for daily use with advanced camera and long battery life.</p>
-          <div className="price">£699</div>
-          <a href="#" className="btn">Add to cart</a>
-        </div>
-        <div className="product-card" data-category="laptop">
-          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=700&q=80" alt="Laptop" />
-          <h3>Laptop</h3>
-          <p>A powerful and reliable laptop for work and school with fast processor and ample storage.</p>
-          <div className="price">£1099</div>
-          <a href="#" className="btn">Add to cart</a>
-        </div>
-        <div className="product-card" data-category="headphones">
-          <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=700&q=80" alt="Headphones" />
-          <h3>Premium Headphones</h3>
-          <p>Clear audio with high-quality sound performance and noise cancellation technology.</p>
-          <div className="price">£159</div>
-          <a href="#" className="btn">Add to cart</a>
-        </div>
-        <div className="product-card" data-category="tablet">
-          <img src="https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=700&q=80" alt="Tablet" />
-          <h3>Tablet</h3>
-          <p>Lightweight tablet perfect for entertainment and productivity with long battery life.</p>
-          <div className="price">£249</div>
-          <a href="#" className="btn">Add to cart</a>
-        </div>
-        <div className="product-card" data-category="smartwatch">
-          <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=700&q=80" alt="Smartwatch" />
-          <h3>Smartwatch</h3>
-          <p>Track your fitness and stay connected with this feature-packed smartwatch.</p>
-          <div className="price">£199</div>
-          <a href="#" className="btn">Add to cart</a>
-        </div>
-        <div className="product-card" data-category="console">
-          <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=700&q=80" alt="Gaming Console" />
-          <h3>Gaming Console</h3>
-          <p>Next-gen gaming console with stunning graphics and immersive gameplay experience.</p>
-          <div className="price">£499</div>
-          <a href="#" className="btn">Add to cart</a>
+        <div
+          className="product-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+            gap: "2rem",
+            padding: "2rem 0",
+          }}
+        >
+          {filteredProducts.map((product) => (
+            <div key={product.id} className="product-card">
+              <img src={product.image} alt={product.name} />
+              <h3>{product.name}</h3>
+              <p>{product.desc}</p>
+              <div className="price">{product.price}</div>
+              <button className="btn primary" style={{ width: "calc(100% - 2rem)", margin: "1rem" }}>
+                Add to cart
+              </button>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
-    <footer>
-      <p>© 2025 Device Swap. All rights reserved.</p>
-    </footer>
-  </>
-);
+      <Footer />
+    </>
+  );
+};
 
 export default Explore;

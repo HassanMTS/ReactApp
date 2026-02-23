@@ -1,27 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const Registration = () => (
   <>
-    <header>
-      <div className="container">
-        <Link to="/" className="logo-link">
-          <img src="images/logo.png" alt="DeviceSwap Logo" className="header-logo" />
-          <h1 style={{ color: '#6c63ff', fontWeight: 700, fontSize: '2rem', margin: 0 }}>DeviceSwap</h1>
-        </Link>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/explore">Explore</Link>
-          <Link to="/checkout">Checkout</Link>
-          <Link to="/sell">Sell</Link>
-          <Link to="/settings">Setting</Link>
-          <Link to="/profile">Profile</Link>
-          <Link to="/messages">Messages</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/registration">Register</Link>
-        </nav>
-      </div>
-    </header>
+    <Header />
     <main className="flex justify-center items-start pt-32 pb-16 min-h-screen">
       <section className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg">
         <form noValidate>
@@ -47,19 +31,17 @@ const Registration = () => (
           </div>
           <div className="flex items-start mb-6">
             <input type="checkbox" id="tos" name="tos" value="tos" required className="h-4 w-4 text-indigo-600 border-gray-300 rounded mt-1 focus:ring-indigo-500" />
-            <label htmlFor="tos" className="ml-2 text-sm text-gray-900">I agree to the <a href="" className="text-indigo-600 hover:text-indigo-800 font-medium">Terms of Use</a> and <a href="" className="text-indigo-600 hover:text-indigo-800 font-medium">Privacy Policy</a>.</label>
+            <label htmlFor="tos" className="ml-2 text-sm text-gray-900">I agree to the <button type="button" className="text-indigo-600 hover:text-indigo-800 font-medium link-btn">Terms of Use</button> and <button type="button" className="text-indigo-600 hover:text-indigo-800 font-medium link-btn">Privacy Policy</button>.</label>
           </div>
           <input type="button" id="button" value="Register" className="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 cursor-pointer" />
-          <a href="" className="block text-center text-sm text-indigo-600 hover:text-indigo-800 mt-3 font-medium">Learn more</a>
+          <Link to="/aboutus" className="block text-center text-sm text-indigo-600 hover:text-indigo-800 mt-3 font-medium">Learn more</Link>
         </form>
         <div id="hiddenSection" className="mt-6 p-4 border border-green-400 bg-green-100 text-green-700 rounded-lg hidden">
           <p id="hiddenParagraph"></p>
         </div>
       </section>
     </main>
-    <footer className="text-center py-6 bg-gray-900 text-white">
-      © 2025 DeviceSwap — All Rights Reserved
-    </footer>
+    <Footer />
   </>
 );
 

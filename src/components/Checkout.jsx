@@ -1,27 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const Checkout = () => (
   <>
-    <header>
-      <div className="container">
-        <Link to="/" className="logo-link">
-          <img src="images/logo.png" alt="DeviceSwap Logo" className="header-logo" />
-          <h1 style={{ color: '#6c63ff', fontWeight: 700, fontSize: '2rem', margin: 0 }}>DeviceSwap</h1>
-        </Link>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/explore">Explore</Link>
-          <Link to="/checkout">Checkout</Link>
-          <Link to="/sell">Sell</Link>
-          <Link to="/settings">Setting</Link>
-          <Link to="/profile">Profile</Link>
-          <Link to="/messages">Messages</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/registration">Register</Link>
-        </nav>
-      </div>
-    </header>
+    <Header />
     <div className="container">
       <div className="checkout-steps">
         <div className="step active">
@@ -168,7 +151,7 @@ const Checkout = () => (
             <div className="form-group" style={{marginTop: "20px"}}>
               <input type="checkbox" id="terms" required />
               <label htmlFor="terms" style={{display: "inline", fontWeight: "normal"}}>
-                I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+                I agree to the <button type="button" className="link-btn">Terms & Conditions</button> and <button type="button" className="link-btn">Privacy Policy</button>
               </label>
             </div>
             <button type="submit" className="btn">
@@ -177,9 +160,7 @@ const Checkout = () => (
           </form>
         </div>
       </div>
-      <footer>
-        <p>© 2025 Device Swap. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   </>
 );

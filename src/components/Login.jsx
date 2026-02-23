@@ -1,27 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const Login = () => (
   <>
-    <header>
-      <div className="container">
-        <Link to="/" className="logo-link">
-          <img src="images/logo.png" alt="DeviceSwap Logo" className="header-logo" />
-          <h1 style={{ color: '#6c63ff', fontWeight: 700, fontSize: '2rem', margin: 0 }}>DeviceSwap</h1>
-        </Link>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/explore">Explore</Link>
-          <Link to="/checkout">Checkout</Link>
-          <Link to="/sell">Sell</Link>
-          <Link to="/settings">Setting</Link>
-          <Link to="/profile">Profile</Link>
-          <Link to="/messages">Messages</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/registration">Register</Link>
-        </nav>
-      </div>
-    </header>
+    <Header />
     <main className="flex justify-center items-start pt-32 pb-16 min-h-screen">
       <section className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md">
         <form noValidate>
@@ -37,10 +21,10 @@ const Login = () => (
           <input type="button" id="loginButton" value="Login" className="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 cursor-pointer" />
           <br /><br />
           <p className="text-center text-sm text-gray-600 mt-4">
-            Don't have an account? <a href="Registration.html" className="text-indigo-600 hover:text-indigo-800 font-medium">Register here</a>
+            Don't have an account? <Link to="/registration" className="text-indigo-600 hover:text-indigo-800 font-medium">Register here</Link>
           </p>
           <p className="text-center text-sm text-gray-600 mt-2">
-            <a href="reset-password.html" className="text-indigo-600 hover:text-indigo-800 font-medium">Forgot your password?</a>
+            <Link to="/reset-password" className="text-indigo-600 hover:text-indigo-800 font-medium">Forgot your password?</Link>
           </p>
         </form>
         <div id="hiddenSection" className="mt-6 p-4 border border-green-400 bg-green-100 text-green-700 rounded-lg hidden">
@@ -48,9 +32,7 @@ const Login = () => (
         </div>
       </section>
     </main>
-    <footer className="text-center py-6 bg-gray-900 text-white">
-      © 2025 DeviceSwap — All Rights Reserved
-    </footer>
+    <Footer />
   </>
 );
 
