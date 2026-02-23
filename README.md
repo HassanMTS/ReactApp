@@ -1,8 +1,46 @@
-# ReactApp
 
-[![CI](https://github.com/HassanMTS/ReactApp/actions/workflows/nodejs.yml/badge.svg)](https://github.com/HassanMTS/ReactApp/actions)
+# DeviceSwap React App
 
-Simple React application.
+This is a React-based marketplace for buying, selling, and repairing devices.
+
+## Quick Start
+
+1. **Clone the repository:**
+	```bash
+	git clone https://github.com/HassanMTS/ReactApp.git
+	cd ReactApp
+	```
+
+2. **Install dependencies:**
+	```bash
+	npm install
+	```
+
+3. **Run the app in development mode:**
+	```bash
+	npm start
+	```
+	The app will open at http://localhost:3000 (or another port if 3000 is in use).
+
+4. **Build for production:**
+	```bash
+	npm run build
+	```
+	This creates a `build/` folder with the production build.
+
+5. **Serve the production build locally:**
+	```bash
+	npm install -g serve
+	serve -s build
+	```
+	Then open the provided localhost URL in your browser.
+
+## Troubleshooting
+
+- If you see a blank page or manifest errors, make sure you are running the app with `npm start` or serving the `build/` folder with `serve -s build`.
+- Do **not** open `index.html` directly in your browser; always use a local server.
+- If you change the `homepage` in `package.json`, rebuild with `npm run build`.
+- For Windows line ending warnings, you can safely ignore them.
 
 ## Author
 
@@ -11,33 +49,6 @@ HassanMTS
 ## Repository
 
 https://github.com/HassanMTS/ReactApp
-
-## Prerequisites
-
-- Node.js (16+ recommended)
-- npm (or `npm` bundled with Node.js)
-
-## Setup
-
-Open a terminal in the project root and run:
-
-```bash
-npm install
-```
-
-## Run (development)
-
-```bash
-npm start
-```
-
-This starts the development server (usually at http://localhost:3000).
-
-## Build
-
-```bash
-npm run build
-```
 
 ## Test
 
